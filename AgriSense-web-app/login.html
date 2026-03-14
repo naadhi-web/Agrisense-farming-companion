@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - AgriSense</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <style>
+    body {
+      background: #e5f3e5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .login-card {
+      background: white;
+      border-radius: 36px;
+      padding: 2.5rem;
+      box-shadow: 0 25px 45px -20px #204d2e;
+      border: 1px solid #d9eed9;
+    }
+    .login-card h2 {
+      color: #1d4429;
+      font-weight: 700;
+    }
+    .btn-primary {
+      background: #1c6133;
+      border: none;
+      border-radius: 40px;
+      padding: 0.8rem;
+      font-weight: 600;
+    }
+    .btn-primary:hover {
+      background: #247a3d;
+    }
+    .text-link {
+      color: #1c6133;
+      font-weight: 600;
+    }
+    .text-link:hover {
+      color: #247a3d;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="login-card">
+          <h2 class="text-center mb-4">Login to AgriSense</h2>
+
+         
+
+          <form method="post" action="{{ url_for('login') }}">
+
+           <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </form>
+
+          <div class="text-center mt-2">
+            Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a> 
+          </div>
+          <div class="text-center mt-3">
+            <a href="#">Forgot Password?</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
