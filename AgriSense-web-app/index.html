@@ -14,20 +14,22 @@
 <body>
   <header class="header">
     <div class="logo"><h1>AgriSense</h1></div>
-    <nav class="navbar">
-      <a href="{{ url_for('index') }}">Home</a>
+    
+
+  <div class="nav-links">
+    <a href="{{ url_for('index') }}">Home</a>
       <a href="#features">Features</a>
       <a href="#about">About</a>
       <a href="#footer">Contact</a>
-      <!-- "EXPLORE NOW" can link to the Streamlit crop app or stay as a static page -->
-    <a href="{{ url_for('explore') }}" class="btn" target="_blank">EXPLORE NOW</a>
-     {% if session['username'] %}
-    <a href="{{ url_for('logout') }}" class="btn" id="logoutBtn">LOGOUT</a>
-    <span id="welcomeUser" style="margin-left:10px;font-weight:600;">Hi, {{ session['username'] }}</span>
-{% else %}
-    
-{% endif %}
-    </nav>
+  </div>
+
+  <div class="nav-user">
+    <span class="welcome">Hi, {{ session['username'] }}</span>
+    <a href="{{ url_for('explore') }}" class="btn explore-btn">EXPLORE NOW</a>
+    <a href="{{ url_for('logout') }}" class="btn logout-btn">LOGOUT</a>
+  </div>
+</nav>
+
     <div class="fas fa-bars" id="menu-btn"></div>
   </header>
 
