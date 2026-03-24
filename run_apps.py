@@ -16,7 +16,8 @@ import sys
 import time
 from pathlib import Path
 
-from flask import app, flash, request
+from flask import app, flash, request, session, redirect, url_for, render_template
+import flask
 from requests import session
 
 # ===== CONFIGURATION =====
@@ -85,11 +86,12 @@ def run_flask(port):
                 return redirect(url_for('login'))
         return render_template('signup.html')
 
+    from flask import session
     @app.route('/logout')
     def logout():
-        session.pop('username', None)
+        flask.session.pop('username', None)
         flash('You have been logged out.', 'info')
-        return redirect(url_for('index'))
+        return redirect(url_for('login'))
     
     @app.route('/debug-session')
     def debug_session():
